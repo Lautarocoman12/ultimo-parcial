@@ -10,7 +10,9 @@ def buscar(request):
     if request.method == 'POST':
         palabra = request.POST['palabra']
         url = f"https://es.wikipedia.org/wiki/{palabra}"
-        r = requests.get(url)
+        headers = {"User-Agent": "Mozilla/5.0"}  
+        r = requests.get(url, headers=headers)   
+
         soup = BeautifulSoup(r.text, 'html.parser')
 
         primeros = soup.find_all('p', limit=3)
@@ -27,7 +29,7 @@ def enviar_resultados(request):
     send_mail(
         "Resultados Scraping",
         mensaje,
-        None,
+        None,  # remitente (puede ser tu EMAIL_HOST_USER si querés)
         [request.user.email],
         fail_silently=True
     )
