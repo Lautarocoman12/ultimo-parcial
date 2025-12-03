@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Alumno</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+  <h2>Crear Alumno</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+    </div>
+    <div class="mb-3">
+      <input type="number" name="nota" class="form-control" placeholder="Nota">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+</body>
+</html>
